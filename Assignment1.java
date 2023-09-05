@@ -71,18 +71,18 @@ public void printNames(){
 
 
 
-public void main()
-{
-    for (int i = 0; i < 2; i ++){
-    getName();
-    getAssignmentname();
-    getMarks();
-    {
-        
-           System.out.println("The marks for  " +assiNames+ " is " +userMarks+ "."  ) ;
-           
+public void printHighestMarkLowestMark(){
+    double highestMark = userMarks[0];
+        double lowestMark = userMarks[0];
+
+        for (int i = 1; i < 30; i++) {
+            if (userMarks[i] > highestMark) {
+                highestMark = userMarks[i];
+            }
+            if (userMarks[i] < lowestMark) {
+                lowestMark = userMarks[i];
+            }
         }
-}
 }
 }
 
