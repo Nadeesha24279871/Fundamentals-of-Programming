@@ -9,8 +9,8 @@ import java.util.Scanner;
 public class Assignment1
 {
     // instance variables - replace the example below with your own
-    public String[] assiName;
-    public int[] userMarks;
+    public String[] assiNames = new String[30];
+    public int[] userMarks = new int[30];
     
     
 
@@ -39,18 +39,19 @@ public class Assignment1
     }
     
     public void getAssignmentname()
-    {
+    { for (int i=0; i<30; i++){
         Scanner userInput = new Scanner(System.in);
         System.out.println("Please Enter the Assignment Name: ");
-        String assiName = userInput.nextLine();
+        String assiNames = userInput.nextLine();
     }
+}
     
     public void getMarks(){
-      for (int i=0; i<30; i++)
+      for (int i=0; i<30; i++){
       Scanner userInput = new Scanner(System.in);
       System.out.println("Please Enter Your Marks: ");  
     
-      int userMarks = userInput.nextInt()
+      int userMarks = userInput.nextInt();
       
       if (userMarks <0 || userMarks >= 30)
       {
@@ -60,7 +61,13 @@ public class Assignment1
        }
     }
          
-
+}
+public void printNames(){
+        for(int i=0; i < assiNames.length; i++){
+            System.out.println("The marks for " +assiNames[i]+ "is" +userMarks);
+            
+        }
+    }
 
 
 
@@ -71,22 +78,15 @@ public void main()
     getAssignmentname();
     getMarks();
     {
-           System.out.println("The marks for  " +assiName+ " is " +userMarks+ "."  ) ;
+        
+           System.out.println("The marks for  " +assiNames+ " is " +userMarks+ "."  ) ;
            
         }
 }
 }
-public void highestandlowestmarks()
-{ int highestMark=0;
-  int lowestMark=30;
-  if (userMarks > highestMark) {
-                highestMark = userMarks;
-            }
-            if (userMarks < lowestMark) {
-                lowestMark = userMarks;
-            }
 }
-}
+
+
 
 
 
