@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.target=Assignment1
+comment0.text=\r\n\ This\ is\ a\ program\ \ to\ compute\ statistics\ of\ 'students'\ marks\ in\ an\ assignment.\r\n\r\n\ @author\ (Nadeesha\ Adasuriya)\r\n\ @version\ (1.0\ 31/08/2023)\r\n
+comment1.params=
+comment1.target=Assignment1()
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Assignment1\r\n
+comment2.params=
+comment2.target=void\ getName()
+comment2.text=\r\n\ An\ example\ of\ a\ method\ -\ replace\ this\ comment\ with\ your\ own\r\n\r\n\ @param\ \ y\ \ a\ sample\ parameter\ for\ a\ method\r\n\ @return\ \ \ \ the\ sum\ of\ x\ and\ y\r\n
+comment3.params=
+comment3.target=void\ getAssignmentname()
+comment4.params=
+comment4.target=void\ getMarks()
+comment5.params=
+comment5.target=void\ main()
+comment6.params=
+comment6.target=void\ highestandlowestmarks()
+numComments=7
