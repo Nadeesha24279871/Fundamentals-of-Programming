@@ -12,9 +12,9 @@ public class Assignment1
     // instance variables - replace the example below with your own
     public String assiNames;
     public double userMarks;
-    private ArrayList<Double> marksArrayList;
-    private ArrayList<String> namesArrayList;
-
+    
+    marksArrayList[] = new double[30];
+    namesArrayList[] = new String[30];
 
     /**
      * Constructor for objects of class Assignment1
@@ -23,6 +23,13 @@ public class Assignment1
     {
         // initialise instance variables
 
+        getName();
+        getAssignmentname();
+        getMarks();
+        printData();
+        printHighestMarkLowestMark();
+
+        
     }
 
     /**
@@ -54,25 +61,25 @@ public class Assignment1
         for (int i=0; i<2; i++){
             boolean userMarksValid = false; 
             while (!userMarksValid){
-            System.out.println("Please Enter Your Marks: ");  
+                System.out.println("Please Enter Your Marks: ");  
 
-            double userMarks = userInput.nextDouble();
+                double userMarks = userInput.nextDouble();
 
-            if (userMarks <0 || userMarks >= 30)
-            {
-                System.out.println("The mark " + userMarks + "is not valid. Please type a number between 0 and 30");
+                if (userMarks <0 || userMarks >= 30)
+                {
+                    System.out.println("The mark " + userMarks + "is not valid. Please type a number between 0 and 30");
 
+                }
+                else{
+                    marksArrayList.add(userMarks);
+                    userMarksValid=true;
+                }
             }
-            else{
-                marksArrayList.add(userMarks);
-                userMarksValid=true;
-            }
+
         }
-
     }
-}
 
-    public void printNames(){
+    public void printData(){
         for(int i=0; i < namesArrayList.length; i++){
             System.out.println("The marks for " + namesArrayList[i]+ "is" + userMarks);
 
@@ -91,7 +98,11 @@ public class Assignment1
                 lowestMark = userMarks[i];
             }
         }
-    }
-}
+        System.out.println( " The highest mark is " +highestMark);
+        System.out.println( " The lowest mark is " +lowestMark);
 
+    }
+
+
+}
 
