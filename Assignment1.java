@@ -13,8 +13,11 @@ public class Assignment1
     public String assiName;
     public double userMarks;
     private ArrayList<Double> marksArrayList;
-    private ArrayList<String> namesArrayList;
+    //private ArrayList<String> namesArrayList;
     //double[] marksArrayList = new double[0];
+    double mean;
+    int numOfStudents;
+    
 
     /**
      * Constructor for objects of class Assignment1
@@ -27,9 +30,14 @@ public class Assignment1
         getAssignmentname();
         getMarks();
         printAssiName();
-        printHighestMarkLowestMark();
+        printHighestMark();
+        printLowestMark();
+        meanMarks();
         marksArrayList= new ArrayList<>();
-        namesArrayList= new ArrayList<>();
+        //namesArrayList= new ArrayList<>();
+        mean=0.0;
+        numOfStudents = 3;
+        
 
     }
 
@@ -52,22 +60,23 @@ public class Assignment1
     { 
         Scanner userInput = new Scanner(System.in);
         System.out.println("Please Enter the Assignment Name: ");
-        this.assiName = userInput.nextLine();
+        this.assiName = userInput.nextLine(); // store user input assignment name in the current object
     }
 
     public void getMarks(){
         Scanner userInput = new Scanner(System.in);
-        for (int i=0; i<2; i++){
-            boolean userMarksValid = false; 
+        boolean userMarksValid = false; 
+        for (int i=0; i<numOfStudents; i++){
+            
             while (!userMarksValid){
                 System.out.println("Please Enter Your Marks: ");  
 
                 double userMarks = userInput.nextDouble();
 
-                if (userMarks <0 || userMarks >= 30)
+                if (userMarks <=0 || userMarks >= 30)
                 {
                     System.out.println("The mark " + userMarks + "is not valid. Please type a number between 0 and 30");
-
+                    i=i-1;
                 }
                 else{
                     marksArrayList.add(userMarks);
@@ -79,7 +88,7 @@ public class Assignment1
     }
 
     public void printAssiName(){
-        System.out.println("The Assignment " +this.assiName);
+        System.out.println("The Assignment is  " +this.assiName); // print the user input assignement name 
 
     }
 
@@ -90,21 +99,31 @@ public class Assignment1
         }
     }
 
-    public void printHighestMarkLowestMark(){
-        double highestMark = marksArrayList[0];
-        double lowestMark = marksArrayList[0];
+    public void printHighestMark(){
+        double highestMark = 0.0;
 
-        for (int i = 1; i < 30; i++) {
-            if (marksArrayList[i] > highestMark) {
-                highestMark = marksArrayList[i];
+        for (int i = 0; i < 3; i++) {
+            if (marksArrayList.get(i) > highestMark) {
+                highestMark = marksArrayList.get(i);
             }
-            if (marksArrayList[i] < lowestMark) {
-                lowestMark = marksArrayList[i];
-            }
+
         }
         System.out.println( " The highest mark is " +highestMark);
-        System.out.println( " The lowest mark is " +lowestMark);
 
     }
-
+    public void printLowestMark(){
+        double lowestMark = marksArrayList.get(1);
+        for (int i = 0; i < 3; i++) {
+            if (marksArrayList.get(i) < lowestMark) {
+                lowestMark = marksArrayList.get(i);
+            }
+        }
+        System.out.println( " The lowest mark is " +lowestMark);
+    }
+    public void meanMarks(){
+        for(int i=0;i<marksArrayList.size();i++){
+            mean = mean + marksArrayList.get(i);
+        }
+        System.out.println(mean/marksArrayList.size());
+    }
 }
