@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 
 /**
  * This is a program  to compute statistics of 'students' marks in an assignment.
@@ -9,10 +10,11 @@ import java.util.Scanner;
 public class Assignment1
 {
     // instance variables - replace the example below with your own
-    public String[] assiNames = new String[30];
-    public int[] userMarks = new int[30];
-    
-    
+    public String assiNames;
+    public double userMarks;
+    private ArrayList<Double> marksArrayList;
+    private ArrayList<String> namesArrayList;
+
 
     /**
      * Constructor for objects of class Assignment1
@@ -20,7 +22,7 @@ public class Assignment1
     public Assignment1()
     {
         // initialise instance variables
-      
+
     }
 
     /**
@@ -33,46 +35,52 @@ public class Assignment1
     {
         Scanner userInput = new Scanner(System.in);
         System.out.println("Please Enter Your Name: ");
-        
+
         String userName = userInput.nextLine();
         System.out.println("Welcome "+ userName);
     }
-    
+
     public void getAssignmentname()
     { for (int i=0; i<30; i++){
-        Scanner userInput = new Scanner(System.in);
-        System.out.println("Please Enter the Assignment Name: ");
-        String assiNames = userInput.nextLine();
-    }
-}
-    
-    public void getMarks(){
-      for (int i=0; i<30; i++){
-      Scanner userInput = new Scanner(System.in);
-      System.out.println("Please Enter Your Marks: ");  
-    
-      int userMarks = userInput.nextInt();
-      
-      if (userMarks <0 || userMarks >= 30)
-      {
-       System.out.println("The mark " +userMarks+ "is not valid. Please type a number between 0 and 30");
-       
-       getMarks();
-       }
-    }
-         
-}
-public void printNames(){
-        for(int i=0; i < assiNames.length; i++){
-            System.out.println("The marks for " +assiNames[i]+ "is" +userMarks);
-            
+            Scanner userInput = new Scanner(System.in);
+            System.out.println("Please Enter the Assignment Name: ");
+            String assiNames = userInput.nextLine();
         }
     }
 
+    public void getMarks(){
 
+        Scanner userInput = new Scanner(System.in);
+        for (int i=0; i<2; i++){
+            boolean userMarksValid = false; 
+            while (!userMarksValid){
+            System.out.println("Please Enter Your Marks: ");  
 
-public void printHighestMarkLowestMark(){
-    double highestMark = userMarks[0];
+            double userMarks = userInput.nextDouble();
+
+            if (userMarks <0 || userMarks >= 30)
+            {
+                System.out.println("The mark " + userMarks + "is not valid. Please type a number between 0 and 30");
+
+            }
+            else{
+                marksArrayList.add(userMarks);
+                userMarksValid=true;
+            }
+        }
+
+    }
+}
+
+    public void printNames(){
+        for(int i=0; i < namesArrayList.length; i++){
+            System.out.println("The marks for " + namesArrayList[i]+ "is" + userMarks);
+
+        }
+    }
+
+    public void printHighestMarkLowestMark(){
+        double highestMark = userMarks[0];
         double lowestMark = userMarks[0];
 
         for (int i = 1; i < 30; i++) {
@@ -83,11 +91,7 @@ public void printHighestMarkLowestMark(){
                 lowestMark = userMarks[i];
             }
         }
+    }
 }
-}
-
-
-
-
 
 
