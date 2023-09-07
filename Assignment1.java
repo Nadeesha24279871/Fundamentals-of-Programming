@@ -25,18 +25,21 @@ public class Assignment1
     public Assignment1()
     {
         // initialise instance variables
-
+        marksArrayList= new ArrayList<>();
         getName();
         getAssignmentname();
-        getMarks();
+        numOfStudents = 4;
+        setMarks();
         printAssiName();
+        printMarks();
         printHighestMark();
         printLowestMark();
         meanMarks();
-        marksArrayList= new ArrayList<>();
+        
         //namesArrayList= new ArrayList<>();
         mean=0.0;
-        numOfStudents = 3;
+        
+        
         
 
     }
@@ -63,12 +66,12 @@ public class Assignment1
         this.assiName = userInput.nextLine(); // store user input assignment name in the current object
     }
 
-    public void getMarks(){
+    public void setMarks(){
         Scanner userInput = new Scanner(System.in);
         boolean userMarksValid = false; 
         for (int i=0; i<numOfStudents; i++){
+            if(!userMarksValid){
             
-            while (!userMarksValid){
                 System.out.println("Please Enter Your Marks: ");  
 
                 double userMarks = userInput.nextDouble();
@@ -80,7 +83,7 @@ public class Assignment1
                 }
                 else{
                     marksArrayList.add(userMarks);
-                    userMarksValid=true;
+                    userMarksValid=false;
                 }
             }
 
@@ -100,9 +103,9 @@ public class Assignment1
     }
 
     public void printHighestMark(){
-        double highestMark = 0.0;
+        double highestMark = marksArrayList.get(0);
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < marksArrayList.size(); i++) {
             if (marksArrayList.get(i) > highestMark) {
                 highestMark = marksArrayList.get(i);
             }
@@ -112,8 +115,8 @@ public class Assignment1
 
     }
     public void printLowestMark(){
-        double lowestMark = marksArrayList.get(1);
-        for (int i = 0; i < 3; i++) {
+        double lowestMark = marksArrayList.get(0);
+        for (int i = 0; i < marksArrayList.size(); i++) {
             if (marksArrayList.get(i) < lowestMark) {
                 lowestMark = marksArrayList.get(i);
             }
@@ -124,6 +127,6 @@ public class Assignment1
         for(int i=0;i<marksArrayList.size();i++){
             mean = mean + marksArrayList.get(i);
         }
-        System.out.println(mean/marksArrayList.size());
+        System.out.println("The mean value is " +mean/marksArrayList.size());
     }
 }
