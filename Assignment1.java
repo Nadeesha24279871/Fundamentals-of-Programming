@@ -15,9 +15,11 @@ public class Assignment1
     private ArrayList<Double> marksArrayList;
     //private ArrayList<String> namesArrayList;
     //double[] marksArrayList = new double[0];
-    double mean;
-    int numOfStudents;
-    
+    private double sum;
+    private int numOfStudents;
+    private double mean;
+    private double x;
+    private double stdDeviation;
 
     /**
      * Constructor for objects of class Assignment1
@@ -28,22 +30,21 @@ public class Assignment1
         marksArrayList= new ArrayList<>();
         getName();
         getAssignmentname();
-        numOfStudents = 4;
+        numOfStudents = 4; // number of users can be changed here
         setMarks();
         printAssiName();
         printMarks();
         printHighestMark();
         printLowestMark();
         meanMarks();
-        
+        calculateStandardDeviation();
         //namesArrayList= new ArrayList<>();
-        mean=0.0;
-        
-        
+        sum=0.0;
+        x=0.0;
         
 
+        
     }
-
     /**
      * An example of a method - replace this comment with your own
      *
@@ -71,7 +72,7 @@ public class Assignment1
         boolean userMarksValid = false; 
         for (int i=0; i<numOfStudents; i++){
             if(!userMarksValid){
-            
+
                 System.out.println("Please Enter Your Marks: ");  
 
                 double userMarks = userInput.nextDouble();
@@ -114,6 +115,7 @@ public class Assignment1
         System.out.println( " The highest mark is " +highestMark);
 
     }
+
     public void printLowestMark(){
         double lowestMark = marksArrayList.get(0);
         for (int i = 0; i < marksArrayList.size(); i++) {
@@ -123,10 +125,20 @@ public class Assignment1
         }
         System.out.println( " The lowest mark is " +lowestMark);
     }
+
     public void meanMarks(){
         for(int i=0;i<marksArrayList.size();i++){
-            mean = mean + marksArrayList.get(i);
+            sum = sum + marksArrayList.get(i);
+            mean=sum/marksArrayList.size();
         }
-        System.out.println("The mean value is " +mean/marksArrayList.size());
+        System.out.println("The mean value is " +mean);
+    }
+
+    public void calculateStandardDeviation(){
+        for(int i=0;i<marksArrayList.size();i++){
+            x=x+Math.pow(marksArrayList.get(i)-mean,2);
+            stdDeviation= Math.sqrt(x/marksArrayList.size());
+        }
+        System.out.println("The Standard Deviation is  " +stdDeviation);
     }
 }
