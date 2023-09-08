@@ -29,19 +29,19 @@ public class Assignment1
     {
         // initialise instance variables
         marksArrayList= new ArrayList<>();
-        getName();
-        getAssignmentname();
+        getName(); // method for taking the name from the user
+        getAssignmentname(); // method for taking the name of the Assignment from the user
         numOfStudents = 4; // number of users can be changed here
-        setMarks();
-        printAssiName();
-        printMarks();
-        printHighestMark();
-        printLowestMark();
-        meanMarks();
-        calculateStandardDeviation();
+        setMarks(); // getting the marks from the user and store them in an array
+        printAssiName(); // print user input assignment name 
+        printMarks(); // print the marks from the array
+        printHighestMark(); // calculate and print the highest mark 
+        printLowestMark(); //calculate and print the lowest mark 
+        meanMarks(); // calculate and print the mean mark 
+        calculateStandardDeviation(); // calculate and print the standard deviation 
         //namesArrayList= new ArrayList<>();
-        sum=0.0;
-        x=0.0;
+        sum=0.0; // initialising sum as 0 which will be used in the mean calculation 
+        x=0.0; // initialising x as 0 which will be used in the standard deviation calculation
 
     }
     /**
@@ -74,7 +74,7 @@ public class Assignment1
 
                 System.out.println("Please Enter Your Marks: ");  
 
-                double userMarks = userInput.nextDouble();
+                double userMarks = userInput.nextDouble();// allows the user to input a double mark and store as userMarks
 
                 if (userMarks <=0 || userMarks >= 30) // check whether marks are between 0 and 30
                 {
@@ -82,7 +82,7 @@ public class Assignment1
                     i=i-1;
                 }
                 else{
-                    marksArrayList.add(userMarks);
+                    marksArrayList.add(userMarks); // add user entered marks into the array
                     userMarksValid=false;
                 }
             }
