@@ -20,6 +20,7 @@ public class Assignment1
     private double mean;
     private double x;
     private double stdDeviation;
+    private double difference;
 
     /**
      * Constructor for objects of class Assignment1
@@ -41,9 +42,7 @@ public class Assignment1
         //namesArrayList= new ArrayList<>();
         sum=0.0;
         x=0.0;
-        
 
-        
     }
     /**
      * An example of a method - replace this comment with your own
@@ -129,16 +128,18 @@ public class Assignment1
     public void meanMarks(){
         for(int i=0;i<marksArrayList.size();i++){
             sum = sum + marksArrayList.get(i);
-            mean=sum/marksArrayList.size();
         }
+        mean = sum/marksArrayList.size();
         System.out.println("The mean value is " +mean);
     }
 
     public void calculateStandardDeviation(){
         for(int i=0;i<marksArrayList.size();i++){
-            x=x+Math.pow(marksArrayList.get(i)-mean,2);
-            stdDeviation= Math.sqrt(x/marksArrayList.size());
+            difference = marksArrayList.get(i)-mean;
+            x = x + Math.pow(difference,2);
+
         }
+        stdDeviation = Math.sqrt(x/marksArrayList.size());
         System.out.println("The Standard Deviation is  " +stdDeviation);
     }
 }
