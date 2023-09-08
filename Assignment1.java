@@ -76,7 +76,7 @@ public class Assignment1
 
                 double userMarks = userInput.nextDouble();
 
-                if (userMarks <=0 || userMarks >= 30)
+                if (userMarks <=0 || userMarks >= 30) // check whether marks are between 0 and 30
                 {
                     System.out.println("The mark " + userMarks + "is not valid. Please type a number between 0 and 30");
                     i=i-1;
@@ -98,7 +98,7 @@ public class Assignment1
     public void printMarks(){
         System.out.println("Students Marks : ");
         for(int i=0; i < marksArrayList.size(); i++){
-            System.out.println(marksArrayList.get(i));
+            System.out.println(marksArrayList.get(i)); // prints all the marks in the array
         }
     }
 
@@ -106,8 +106,8 @@ public class Assignment1
         double highestMark = marksArrayList.get(0);
 
         for (int i = 0; i < marksArrayList.size(); i++) {
-            if (marksArrayList.get(i) > highestMark) {
-                highestMark = marksArrayList.get(i);
+            if (marksArrayList.get(i) > highestMark) { //take the first number in the array and check the larger number 
+                highestMark = marksArrayList.get(i); // assign the selected number into variable highestMark 
             }
 
         }
@@ -118,28 +118,28 @@ public class Assignment1
     public void printLowestMark(){
         double lowestMark = marksArrayList.get(0);
         for (int i = 0; i < marksArrayList.size(); i++) {
-            if (marksArrayList.get(i) < lowestMark) {
-                lowestMark = marksArrayList.get(i);
+            if (marksArrayList.get(i) < lowestMark) { //take the first number in the array and check the smaller number
+                lowestMark = marksArrayList.get(i); // assign the selected number into variable lowestMark
             }
         }
-        System.out.println( " The lowest mark is " +lowestMark);
+        System.out.println( " The lowest mark is " +lowestMark); // print lowest mark
     }
 
     public void meanMarks(){
         for(int i=0;i<marksArrayList.size();i++){
-            sum = sum + marksArrayList.get(i);
+            sum = sum + marksArrayList.get(i); // add the current value from the array to the running sum
         }
-        mean = sum/marksArrayList.size();
-        System.out.println("The mean value is " +mean);
+        mean = sum/marksArrayList.size(); // mean = sum/number of marks
+        System.out.println("The mean value is " +mean); // print mean 
     }
 
     public void calculateStandardDeviation(){
         for(int i=0;i<marksArrayList.size();i++){
-            difference = marksArrayList.get(i)-mean;
-            x = x + Math.pow(difference,2);
+            difference = marksArrayList.get(i)-mean; // take the difference between the current element and the mean 
+            x = x + Math.pow(difference,2); // taking the sum of the squared differences
 
         }
-        stdDeviation = Math.sqrt(x/marksArrayList.size());
-        System.out.println("The Standard Deviation is  " +stdDeviation);
+        stdDeviation = Math.sqrt(x/marksArrayList.size()); // taking the square root of x/number of marks
+        System.out.println("The Standard Deviation is  " +stdDeviation); // print standard deviation
     }
 }
